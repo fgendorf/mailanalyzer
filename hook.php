@@ -201,7 +201,7 @@ class PluginMailAnalyzer {
 	 //error_log(print_r($parm,1));
 	 
 	      $mesid['references'] = html_entity_decode($parm->input['_head']['references'] ?? null); //html_entity_decode to compatibility with previous messages_id
-	      $mesid['threadindex'] = html_entity_decode($parm->input['_head']['threadindex'] ?? null); //html_entity_decode to compatibility with previous messages_id
+	      $mesid['threadindex'] = html_entity_decode($parm->input['_head']['thread-index'] ?? null); //html_entity_decode to compatibility with previous messages_id
          $messages_id = self::getMailReferences($mesid);
 
          if (count($messages_id) > 0) {
@@ -287,7 +287,7 @@ class PluginMailAnalyzer {
 
 	      // Are 'Thread-Index' or 'Refrences' present?
 	      $mesid['references'] = html_entity_decode($parm->input['_head']['references'] ?? null);//html_entity_decode to compatibility with previous messages_id
-	      $mesid['threadindex'] = html_entity_decode($parm->input['_head']['threadindex'] ?? null);//html_entity_decode to compatibility with previous messages_id
+	      $mesid['threadindex'] = html_entity_decode($parm->input['_head']['thread-index'] ?? null);//html_entity_decode to compatibility with previous messages_id
          $messages_id = self::getMailReferences($mesid);
          $messages_id[] = html_entity_decode($parm->input['_head']['message_id']);
 
